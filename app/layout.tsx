@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { LiveMarketTicker } from "@/components/charts/live-market-ticker"
 import "./globals.css"
 
@@ -38,6 +39,7 @@ export default function RootLayout({
         <LiveMarketTicker />
         <div className="pt-[72px]">{children}</div>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
