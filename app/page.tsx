@@ -1,3 +1,4 @@
+import BehavioralCopilot from '@/components/BehavioralCopilot';
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { HeroSection } from "@/components/home/hero-section"
@@ -12,6 +13,7 @@ export default function HomePage() {
     <div className="flex min-h-screen flex-col">
       <Header />
       <main className="flex-1">
+        <BehavioralCopilot />
         <HeroSection />
         <AboutSection />
         <ServicesSection />
