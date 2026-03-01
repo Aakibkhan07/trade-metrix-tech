@@ -1,166 +1,199 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Zap, TrendingUp, Code2 } from "lucide-react"
+import { ArrowRight, Zap, BarChart3, Code2, Play, Download, Send, Cpu } from "lucide-react"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 
 export function HeroSection() {
   const [mounted, setMounted] = useState(false)
+  const [orderCount, setOrderCount] = useState(0)
+  const [activeOrders, setActiveOrders] = useState([])
 
   useEffect(() => {
     setMounted(true)
+    // Simulate live order execution
+    const interval = setInterval(() => {
+      setOrderCount(prev => prev + Math.floor(Math.random() * 5) + 1)
+      if (Math.random() > 0.3) {
+        setActiveOrders(prev => {
+          const newOrders = [...prev, {
+            id: Math.random(),
+            symbol: ['NIFTY', 'BANKNIFTY', 'FINNIFTY'][Math.floor(Math.random() * 3)],
+            type: Math.random() > 0.5 ? 'BUY' : 'SELL',
+            executed: true
+          }]
+          return newOrders.slice(-4)
+        })
+      }
+    }, 2000)
+    return () => clearInterval(interval)
   }, [])
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-b from-background via-background to-card/30 pt-20 pb-20">
-      {/* Bold geometric background */}
+    <section className="relative min-h-screen overflow-hidden bg-gradient-to-b from-background via-background/95 to-card/40 pt-20 pb-20">
+      {/* Animated background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-accent/10 rounded-full blur-3xl" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,transparent_24%,oklch(0.15_0.008_0_/_0.08)_25%,oklch(0.15_0.008_0_/_0.08)_26%,transparent_27%,transparent_74%,oklch(0.15_0.008_0_/_0.08)_75%,oklch(0.15_0.008_0_/_0.08)_76%,transparent_77%,transparent)] bg-[size:50px_50px]" />
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/15 rounded-full blur-3xl animate-float-slow" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/15 rounded-full blur-3xl animate-float-reverse" />
+        <div className="absolute top-1/2 right-0 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+        
+        {/* Grid pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,transparent_24%,oklch(0.15_0.008_0_/_0.05)_25%,oklch(0.15_0.008_0_/_0.05)_26%,transparent_27%,transparent_74%,oklch(0.15_0.008_0_/_0.05)_75%,oklch(0.15_0.008_0_/_0.05)_76%,transparent_77%,transparent)] bg-[size:40px_40px]" />
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-4 md:px-6 lg:px-8">
-        {/* Top badge */}
-        <div className={`flex justify-center mb-8 ${mounted ? "animate-fade-in" : "opacity-0"}`}>
-          <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/40 rounded-full px-4 py-2 text-sm font-semibold text-primary hover:bg-primary/30 transition-all cursor-pointer">
-            <Zap className="h-4 w-4" />
-            <span>Automatic Trading Software for Algorithmic Traders</span>
+      <div className="relative mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+        {/* Badge */}
+        <div className={`flex justify-center mb-8 transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+          <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/40 rounded-full px-4 py-2 text-sm font-semibold text-primary hover:bg-primary/30 transition-all group">
+            <Cpu className="h-4 w-4 group-hover:animate-spin" />
+            <span>AI-Powered Automatic Execution Engine</span>
           </div>
         </div>
 
-        {/* Main content */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left side - Copy */}
-          <div className={`text-center lg:text-left ${mounted ? "animate-blur-in" : "opacity-0"}`}>
+        {/* Main Grid Layout */}
+        <div className="grid lg:grid-cols-3 gap-8 items-start mb-12">
+          {/* Left Column - Main headline and CTAs */}
+          <div className={`lg:col-span-2 transition-all duration-1000 delay-100 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-foreground mb-6 leading-tight">
-              Automate Your <span className="text-primary">Trading</span>
+              Trade <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient-x">Automatically</span>, Profit <span className="text-primary">Instantly</span>
             </h1>
             
-            <p className="text-lg md:text-xl text-foreground/70 mb-8 leading-relaxed max-w-lg">
-              Professional algorithmic trading software with AI-powered strategies. Deploy, execute, and monitor your trading systems without manual intervention.
+            <p className="text-base md:text-lg text-foreground/70 mb-8 leading-relaxed max-w-xl">
+              Deploy AI-powered algorithmic strategies and watch them execute with zero latency. No manual trading. No emotions. Just pure automation and consistent results.
             </p>
 
-            {/* Feature list */}
-            <div className="space-y-3 mb-8">
+            {/* Three Key Features */}
+            <div className="grid grid-cols-3 gap-3 mb-10 md:mb-12">
               {[
-                { icon: Zap, text: "Sub-millisecond execution speed" },
-                { icon: TrendingUp, text: "AI-powered strategy engine" },
-                { icon: Code2, text: "No code, drag-and-drop builder" },
-              ].map((feature, idx) => (
-                <div key={idx} className="flex items-center gap-3 text-foreground/80">
-                  <feature.icon className="h-5 w-5 text-primary flex-shrink-0" />
-                  <span className="font-medium">{feature.text}</span>
+                { icon: Zap, label: "<1ms", desc: "Execution" },
+                { icon: BarChart3, label: "50+", desc: "Strategies" },
+                { icon: Cpu, label: "24/7", desc: "Automated" },
+              ].map((item, idx) => (
+                <div key={idx} className={`bg-card/40 border border-primary/20 rounded-lg p-3 backdrop-blur-sm hover:border-primary/50 transition-all group transition-all duration-1000 ${mounted ? "opacity-100" : "opacity-0"}`} style={{ transitionDelay: `${200 + idx * 100}ms` }}>
+                  <item.icon className="h-5 w-5 text-primary mb-2 group-hover:scale-125 transition-transform" />
+                  <p className="text-sm font-black text-foreground">{item.label}</p>
+                  <p className="text-xs text-foreground/60">{item.desc}</p>
                 </div>
               ))}
             </div>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            {/* CTA Buttons */}
+            <div className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 ${mounted ? "opacity-100" : "opacity-0"}`} style={{ transitionDelay: "400ms" }}>
               <Link href="/register">
                 <Button 
                   size="lg" 
-                  className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-base px-8 py-6 rounded-xl shadow-2xl shadow-primary/40 hover:shadow-primary/60 transition-all hover:-translate-y-1 group"
+                  className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-8 py-6 rounded-xl shadow-2xl shadow-primary/40 hover:shadow-primary/60 transition-all hover:-translate-y-1 group"
                 >
-                  Start Free Trial
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  <Play className="h-4 w-4 mr-2" />
+                  Start Live Demo
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
               <Link href="/algo-software">
                 <Button 
                   size="lg" 
                   variant="outline"
-                  className="w-full sm:w-auto border-primary/40 hover:bg-primary/10 font-bold text-base px-8 py-6 rounded-xl transition-all"
+                  className="w-full sm:w-auto border-primary/40 hover:bg-primary/10 font-bold px-8 py-6 rounded-xl transition-all"
                 >
-                  Explore Software
+                  <Code2 className="h-4 w-4 mr-2" />
+                  View Strategies
                 </Button>
               </Link>
             </div>
           </div>
 
-          {/* Right side - Visual showcase */}
-          <div className={`hidden lg:block ${mounted ? "animate-fade-in animation-delay-200" : "opacity-0"}`}>
-            <div className="relative">
-              {/* Floating card */}
-              <div className="bg-card border border-primary/30 rounded-2xl p-6 shadow-2xl relative overflow-hidden group hover:border-primary/60 transition-all">
-                {/* Gradient border effect */}
-                <div className="absolute inset-0 rounded-2xl border border-primary/0 group-hover:border-primary/20 transition-all" />
-
-                {/* Content */}
-                <div className="relative space-y-6">
-                  {/* Header */}
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="text-sm font-bold text-primary mb-1">TRADE METRIX AUTOMATION</h3>
-                      <p className="text-xs text-foreground/60">Real-time Strategy Execution</p>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-success animate-pulse" />
-                      <span className="text-xs font-bold text-success">ACTIVE</span>
-                    </div>
+          {/* Right Column - Live Terminal Mockup */}
+          <div className={`relative transition-all duration-1000 delay-200 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+            <div className="sticky top-20">
+              {/* Terminal-style card */}
+              <div className="bg-gradient-to-br from-card/60 to-card/40 border border-primary/40 rounded-2xl p-6 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+                {/* Glow effect */}
+                <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/20 rounded-full blur-3xl" />
+                
+                {/* Terminal header */}
+                <div className="flex items-center justify-between mb-4 pb-4 border-b border-primary/20 relative z-10">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-success animate-pulse" />
+                    <span className="text-xs font-mono font-bold text-primary">LIVE TRADING</span>
                   </div>
+                  <span className="text-xs text-foreground/50 font-mono">UPTIME: 99.8%</span>
+                </div>
 
-                  {/* Stats */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-primary/10 border border-primary/20 rounded-lg p-4">
-                      <p className="text-xs text-foreground/60 mb-2">Executions Today</p>
-                      <p className="text-2xl font-black text-foreground">1,247</p>
-                      <p className="text-xs text-success font-bold mt-1">+18% vs yesterday</p>
-                    </div>
-                    <div className="bg-accent/10 border border-accent/20 rounded-lg p-4">
-                      <p className="text-xs text-foreground/60 mb-2">Strategy Health</p>
-                      <p className="text-2xl font-black text-accent">98%</p>
-                      <p className="text-xs text-foreground/60 font-bold mt-1">All systems optimal</p>
-                    </div>
+                {/* Live stats */}
+                <div className="space-y-3 mb-6 relative z-10">
+                  <div className="flex justify-between items-center p-3 bg-background/50 rounded-lg border border-border/30">
+                    <span className="text-xs font-mono text-foreground/60">Orders Executed</span>
+                    <span className="text-lg font-black text-primary">{orderCount}</span>
                   </div>
-
-                  {/* Strategies list */}
-                  <div className="space-y-2">
-                    {[
-                      { name: "AI-Nifty Smart", status: "Running", trades: "24" },
-                      { name: "Option Chain Sweep", status: "Running", trades: "18" },
-                      { name: "Greeks Optimizer", status: "Idle", trades: "0" },
-                    ].map((strategy, idx) => (
-                      <div key={idx} className="flex items-center justify-between p-3 bg-background/50 rounded-lg border border-border/30 hover:border-primary/30 transition-all">
-                        <div>
-                          <p className="text-sm font-bold text-foreground">{strategy.name}</p>
-                          <p className="text-xs text-foreground/60">{strategy.status}</p>
-                        </div>
-                        <div className={`text-sm font-black ${strategy.status === "Running" ? "text-success" : "text-foreground/50"}`}>
-                          {strategy.trades} trades
-                        </div>
-                      </div>
-                    ))}
+                  <div className="flex justify-between items-center p-3 bg-background/50 rounded-lg border border-border/30">
+                    <span className="text-xs font-mono text-foreground/60">Strategies Active</span>
+                    <span className="text-lg font-black text-accent">12</span>
                   </div>
-
-                  {/* Progress */}
-                  <div>
-                    <div className="flex justify-between items-center mb-2">
-                      <p className="text-xs font-semibold text-foreground">System Uptime</p>
-                      <p className="text-xs font-bold text-primary">99.8%</p>
-                    </div>
-                    <div className="h-2 bg-background/80 rounded-full overflow-hidden">
-                      <div className="h-full w-[99.8%] bg-gradient-to-r from-primary to-accent rounded-full" />
-                    </div>
+                  <div className="flex justify-between items-center p-3 bg-background/50 rounded-lg border border-border/30">
+                    <span className="text-xs font-mono text-foreground/60">Today's P&L</span>
+                    <span className="text-lg font-black text-success">+₹84,720</span>
                   </div>
                 </div>
 
-                {/* Decorative corner lines */}
-                <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-primary/20 rounded-tl-xl" />
-                <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-primary/20 rounded-br-xl" />
+                {/* Live order feed */}
+                <div className="relative z-10 pt-4 border-t border-primary/20">
+                  <p className="text-xs font-mono text-foreground/60 mb-2">RECENT EXECUTIONS</p>
+                  <div className="space-y-1.5">
+                    {activeOrders.map((order) => (
+                      <div key={order.id} className={`text-xs font-mono p-2 rounded border transition-all ${order.type === 'BUY' ? 'border-success/30 bg-success/10 text-success' : 'border-destructive/30 bg-destructive/10 text-destructive'}`}>
+                        <span>{order.type}</span> {order.symbol} @ <span className="font-bold">${'Market'}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Decorative lines */}
+                <div className="absolute top-0 left-0 w-12 h-12 border-l-2 border-t-2 border-primary/30 rounded-tl-xl" />
+                <div className="absolute bottom-0 right-0 w-12 h-12 border-r-2 border-b-2 border-primary/30 rounded-br-xl" />
               </div>
             </div>
           </div>
         </div>
 
-        {/* Integration badges */}
-        <div className={`mt-20 ${mounted ? "animate-fade-in animation-delay-300" : "opacity-0"}`}>
-          <p className="text-center text-sm text-foreground/60 mb-6 font-semibold uppercase tracking-widest">Integrated with 20+ Brokers</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {["Angel One", "Zerodha", "Upstox", "Fyers"].map((broker) => (
-              <div key={broker} className="bg-card/50 border border-primary/10 rounded-lg p-4 text-center hover:border-primary/30 transition-all">
-                <p className="text-sm font-bold text-foreground/70">{broker}</p>
+        {/* Floating Info Cards Below */}
+        <div className="grid md:grid-cols-3 gap-4">
+          {[
+            { 
+              icon: Download, 
+              title: "Deploy in Minutes", 
+              desc: "Connect your broker and deploy strategies instantly"
+            },
+            { 
+              icon: Send, 
+              title: "100% Automated", 
+              desc: "Orders execute automatically 24/7 with zero intervention"
+            },
+            { 
+              icon: BarChart3, 
+              title: "Real-time Tracking", 
+              desc: "Monitor all trades and performance metrics live"
+            },
+          ].map((card, idx) => (
+            <div 
+              key={idx} 
+              className={`bg-card/50 border border-primary/20 rounded-xl p-5 backdrop-blur-sm hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 group transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+              style={{ transitionDelay: `${500 + idx * 100}ms` }}
+            >
+              <card.icon className="h-6 w-6 text-primary mb-3 group-hover:scale-110 transition-transform" />
+              <h3 className="font-bold text-sm text-foreground mb-1">{card.title}</h3>
+              <p className="text-xs text-foreground/60">{card.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom Broker Integration Section */}
+        <div className={`mt-16 text-center transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`} style={{ transitionDelay: "600ms" }}>
+          <p className="text-xs text-foreground/60 mb-4 font-semibold uppercase tracking-widest">Works with 20+ Leading Indian Brokers</p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {["Angel One", "Zerodha", "Upstox", "Fyers", "5Paisa"].map((broker) => (
+              <div key={broker} className="px-3 py-1.5 bg-card/50 border border-primary/20 rounded-full text-xs font-medium text-foreground/70 hover:border-primary/50 hover:bg-primary/10 transition-all">
+                {broker}
               </div>
             ))}
           </div>
