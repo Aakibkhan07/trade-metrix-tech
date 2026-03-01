@@ -128,24 +128,10 @@ export function Header() {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-
-          <Link
-            href="/#stats"
-            className="text-sm font-semibold text-foreground/80 px-4 py-2 rounded-lg transition-all duration-200 hover:text-primary hover:bg-primary/5"
-          >
-            Performance
-          </Link>
         </nav>
 
         {/* Desktop Right Section */}
         <div className="hidden items-center gap-3 lg:flex ml-auto">
-          <Button 
-            variant="ghost" 
-            asChild 
-            className="text-foreground/80 font-semibold hover:text-primary hover:bg-primary/5 transition-all"
-          >
-            <Link href="/login">Sign In</Link>
-          </Button>
           <Button
             asChild
             className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg font-bold shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all hover:-translate-y-0.5 px-6"
@@ -274,22 +260,7 @@ export function Header() {
               </div>
             </div>
 
-            <Link
-              href="/#stats"
-              className="text-sm font-semibold text-foreground border-t border-primary/20 mt-2 pt-3 px-4 py-2 rounded-lg hover:bg-primary/10 transition-all"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Performance
-            </Link>
-
             <div className="flex flex-col gap-2 border-t border-primary/20 mt-4 pt-4">
-              <Button 
-                variant="outline" 
-                asChild 
-                className="w-full bg-transparent border-primary/30 hover:bg-primary/10 font-semibold text-foreground"
-              >
-                <Link href="/login">Sign In</Link>
-              </Button>
               <Button
                 asChild
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold"

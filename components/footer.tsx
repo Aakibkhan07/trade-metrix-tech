@@ -50,9 +50,6 @@ export function Footer() {
               <Link href="/pricing" className="text-sm text-foreground/70 hover:text-primary transition-colors font-medium">
                 Pricing Plans
               </Link>
-              <Link href="/#accuracy" className="text-sm text-foreground/70 hover:text-primary transition-colors font-medium">
-                Performance
-              </Link>
             </nav>
           </div>
 
