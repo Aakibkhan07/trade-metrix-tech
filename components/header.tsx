@@ -19,6 +19,7 @@ export function Header() {
             alt="Trade Metrix Logo" 
             width={40} 
             height={40} 
+            loading="eager"
             className="h-10 w-10 object-contain group-hover:scale-110 transition-transform" 
           />
           <div className="flex flex-col">
