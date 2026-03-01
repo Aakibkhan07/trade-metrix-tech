@@ -2,7 +2,6 @@ import type React from "react"
 import type { Metadata } from "next"
 
 import { Analytics } from "@vercel/analytics/next"
-import { LiveMarketTicker } from "@/components/charts/live-market-ticker"
 import "./globals.css"
 
 import { Inter, JetBrains_Mono, Oxygen as V0_Font_Oxygen, Geist_Mono as V0_Font_Geist_Mono, Merriweather as V0_Font_Merriweather } from 'next/font/google'
@@ -35,8 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans antialiased`}>
-        <LiveMarketTicker />
-        <div className="pt-[72px]">{children}</div>
+        <div className="pt-0">{children}</div>
         <Analytics />
       </body>
     </html>
