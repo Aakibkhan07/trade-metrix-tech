@@ -5,17 +5,13 @@ import { Rocket, ArrowRight, CheckCircle } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
-const strategies = [
-  "AIMetrix",
-  "DeltaMax",
-  "ThetaPro",
-  "GammaPro",
-  "NeuroMax",
-  "ScalperX",
-  "StrikeX",
-  "VoltaX",
-  "QuantumEdge",
-  "IronDelta",
+const features = [
+  "100% Automatic Execution",
+  "No Advisory Services",
+  "AI-Powered Strategies",
+  "Real-time Monitoring",
+  "Risk Management Built-in",
+  "Multi-broker Integration",
 ]
 
 function AnimatedNumber({ value, suffix }: { value: string; suffix: string }) {
@@ -92,41 +88,25 @@ export function AboutSection() {
           >
             <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs md:text-sm font-medium text-primary mb-4 md:mb-6 border border-primary/20 animate-bounce-subtle">
               <Rocket className="h-4 w-4" />
-              About TradeMetrix
+              About Trade Metrix Technologies
             </div>
 
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-4 md:mb-6 leading-tight">
-              Specialized in{" "}
+              Professional{" "}
               <span className="relative">
                 <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  Options Trading
+                  Algorithmic Trading Software
                 </span>
                 <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent rounded-full animate-pulse" />
               </span>
             </h2>
 
             <p className="text-sm md:text-lg text-muted-foreground mb-6 md:mb-8 leading-relaxed">
-              TradeMetrix builds powerful algorithmic trading software for{" "}
-              <strong className="text-foreground">Nifty and Bank Nifty</strong> options.
+              Trade Metrix Technologies is a <strong className="text-foreground">technology company</strong> specializing in automatic trading software powered by artificial intelligence. We build the tools, not provide advice.
             </p>
 
-            <div className="flex flex-wrap gap-2 mb-6 md:mb-8">
-              {strategies.map((strategy, index) => (
-                <span
-                  key={index}
-                  className={`px-3 py-1.5 text-xs md:text-sm rounded-full bg-secondary border border-border hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 cursor-default hover:-translate-y-0.5 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
-                  style={{ transitionDelay: `${index * 50}ms` }}
-                >
-                  {strategy}
-                </span>
-              ))}
-              <span className="px-3 py-1.5 text-xs md:text-sm rounded-full bg-primary/10 text-primary border border-primary/20 animate-pulse">
-                +10 more
-              </span>
-            </div>
-
             <div className="space-y-3 mb-8">
-              {["No tips or advisory", "Automated strategy execution", "Complete transparency"].map((feature, idx) => (
+              {["Software Provider - Not a Broker", "Technology Company - Not Advisory", "Automation First - Zero Manual Intervention"].map((feature, idx) => (
                 <div
                   key={feature}
                   className={`flex items-center gap-2 transition-all duration-500 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-5"}`}
@@ -138,9 +118,9 @@ export function AboutSection() {
               ))}
             </div>
 
-            <Link href="/features">
+            <Link href="/algo-software">
               <Button className="gap-2 rounded-full group hover:scale-105 transition-transform duration-300" size="lg">
-                Explore Features
+                Explore Our Software
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
@@ -150,10 +130,10 @@ export function AboutSection() {
             className={`grid grid-cols-2 gap-3 md:gap-4 transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}
           >
             {[
-              { value: "15", suffix: "+", label: "Years in Tech", icon: "🏆", delay: 0 },
-              { value: "50", suffix: "+", label: "Strategies", icon: "🎯", delay: 100 },
-              { value: "20", suffix: "+", label: "Brokers", icon: "🔗", delay: 200 },
-              { value: "5", suffix: "K+", label: "Traders", icon: "👥", delay: 300 },
+              { value: "15", suffix: "+", label: "Years in Tech", icon: "🔧", delay: 0 },
+              { value: "100", suffix: "%", label: "Automatic Execution", icon: "⚙️", delay: 100 },
+              { value: "20", suffix: "+", label: "Broker Integrations", icon: "🔗", delay: 200 },
+              { value: "50", suffix: "+", label: "AI Strategies", icon: "🤖", delay: 300 },
             ].map((stat, idx) => (
               <div
                 key={stat.label}

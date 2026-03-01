@@ -23,8 +23,8 @@ export function Header() {
             className="h-10 w-10 object-contain group-hover:scale-110 transition-transform" 
           />
           <div className="flex flex-col">
-            <span className="text-lg font-bold tracking-tight text-foreground">TradeMX</span>
-            <span className="text-[9px] text-primary font-semibold -mt-1">AI Trading</span>
+            <span className="text-lg font-bold tracking-tight text-foreground">TMT</span>
+            <span className="text-[9px] text-primary font-semibold -mt-1">Tech Solutions</span>
           </div>
         </Link>
 

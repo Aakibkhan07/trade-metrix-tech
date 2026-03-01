@@ -12,18 +12,18 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-2 group">
               <Image
                 src="/logo.png"
-                alt="Trade Metrix Logo"
+                alt="Trade Metrix Technologies Logo"
                 width={40}
                 height={40}
                 className="h-10 w-10 object-contain group-hover:scale-110 transition-transform"
               />
               <div className="flex flex-col">
-                <span className="text-xl font-black tracking-tight text-foreground">TradeMX</span>
-                <span className="text-[10px] text-primary font-semibold">Precision Trading</span>
+                <span className="text-xl font-black tracking-tight text-foreground">TMT</span>
+                <span className="text-[10px] text-primary font-semibold">Tech Solutions</span>
               </div>
             </Link>
             <p className="text-sm text-foreground/70 leading-relaxed max-w-sm">
-              Professional algorithmic trading software built for precision, speed, and automation. Deploy proven trading systems without emotions.
+              Trade Metrix Technologies is a technology company specializing in automatic algorithmic trading software with AI-powered strategies. We build trading automation tools, not provide financial advice.
             </p>
             <Link
               href="https://trade.trademetrix.tech"
@@ -125,9 +125,9 @@ export function Footer() {
           </div>
 
           <div className="bg-primary/10 border border-primary/20 rounded-xl p-6">
-            <p className="text-sm font-bold text-foreground mb-3 uppercase tracking-wider">Legal Notice</p>
+            <p className="text-sm font-bold text-foreground mb-3 uppercase tracking-wider">Important Notice</p>
             <p className="text-xs text-foreground/70 leading-relaxed">
-              TradeMX is a technology company providing trading software and tools only. We are NOT a financial advisor or broker. Trading involves substantial risk. Past performance does not guarantee future results. Always conduct your own research before trading.
+              Trade Metrix Technologies is a TECHNOLOGY COMPANY providing automatic trading software and tools only. We are NOT a financial advisor, broker, or investment service provider. Trading involves substantial risk and is not suitable for all investors. Past performance does not guarantee future results. Always conduct your own research and consult with qualified professionals before trading.
             </p>
           </div>
         </div>

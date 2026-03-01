@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Zap, TrendingUp, Bot, Code2 } from "lucide-react"
+import { ArrowRight, Zap, TrendingUp, Code2 } from "lucide-react"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 
@@ -26,7 +26,7 @@ export function HeroSection() {
         <div className={`flex justify-center mb-8 ${mounted ? "animate-fade-in" : "opacity-0"}`}>
           <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/40 rounded-full px-4 py-2 text-sm font-semibold text-primary hover:bg-primary/30 transition-all cursor-pointer">
             <Zap className="h-4 w-4" />
-            <span>Trading with Precision & Speed</span>
+            <span>Automatic Trading Software for Algorithmic Traders</span>
           </div>
         </div>
 
@@ -35,19 +35,19 @@ export function HeroSection() {
           {/* Left side - Copy */}
           <div className={`text-center lg:text-left ${mounted ? "animate-blur-in" : "opacity-0"}`}>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-foreground mb-6 leading-tight">
-              Trade Like <span className="text-primary">A Machine</span>
+              Automate Your <span className="text-primary">Trading</span>
             </h1>
             
             <p className="text-lg md:text-xl text-foreground/70 mb-8 leading-relaxed max-w-lg">
-              Automated trading systems that execute with zero emotion. Deploy proven algorithms. Watch your portfolio grow.
+              Professional algorithmic trading software with AI-powered strategies. Deploy, execute, and monitor your trading systems without manual intervention.
             </p>
 
             {/* Feature list */}
             <div className="space-y-3 mb-8">
               {[
-                { icon: Zap, text: "Execute in 0.02 seconds" },
-                { icon: TrendingUp, text: "50+ battle-tested strategies" },
-                { icon: Code2, text: "Trade with code, not fingers" },
+                { icon: Zap, text: "Sub-millisecond execution speed" },
+                { icon: TrendingUp, text: "AI-powered strategy engine" },
+                { icon: Code2, text: "No code, drag-and-drop builder" },
               ].map((feature, idx) => (
                 <div key={idx} className="flex items-center gap-3 text-foreground/80">
                   <feature.icon className="h-5 w-5 text-primary flex-shrink-0" />
@@ -63,7 +63,7 @@ export function HeroSection() {
                   size="lg" 
                   className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-base px-8 py-6 rounded-xl shadow-2xl shadow-primary/40 hover:shadow-primary/60 transition-all hover:-translate-y-1 group"
                 >
-                  Start Trading Free
+                  Start Free Trial
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
@@ -73,7 +73,7 @@ export function HeroSection() {
                   variant="outline"
                   className="w-full sm:w-auto border-primary/40 hover:bg-primary/10 font-bold text-base px-8 py-6 rounded-xl transition-all"
                 >
-                  View Strategies
+                  Explore Software
                 </Button>
               </Link>
             </div>
@@ -92,8 +92,8 @@ export function HeroSection() {
                   {/* Header */}
                   <div className="flex items-center justify-between">
                     <div>
-                      <h3 className="text-sm font-bold text-primary mb-1">LIVE TRADING</h3>
-                      <p className="text-xs text-foreground/60">Today's Performance</p>
+                      <h3 className="text-sm font-bold text-primary mb-1">TRADE METRIX AUTOMATION</h3>
+                      <p className="text-xs text-foreground/60">Real-time Strategy Execution</p>
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 rounded-full bg-success animate-pulse" />
@@ -104,30 +104,31 @@ export function HeroSection() {
                   {/* Stats */}
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-primary/10 border border-primary/20 rounded-lg p-4">
-                      <p className="text-xs text-foreground/60 mb-2">Portfolio Value</p>
-                      <p className="text-2xl font-black text-foreground">₹4.2M</p>
-                      <p className="text-xs text-success font-bold mt-1">+12.4% today</p>
+                      <p className="text-xs text-foreground/60 mb-2">Executions Today</p>
+                      <p className="text-2xl font-black text-foreground">1,247</p>
+                      <p className="text-xs text-success font-bold mt-1">+18% vs yesterday</p>
                     </div>
                     <div className="bg-accent/10 border border-accent/20 rounded-lg p-4">
-                      <p className="text-xs text-foreground/60 mb-2">Win Rate</p>
-                      <p className="text-2xl font-black text-accent">84%</p>
-                      <p className="text-xs text-foreground/60 font-bold mt-1">18/24 trades</p>
+                      <p className="text-xs text-foreground/60 mb-2">Strategy Health</p>
+                      <p className="text-2xl font-black text-accent">98%</p>
+                      <p className="text-xs text-foreground/60 font-bold mt-1">All systems optimal</p>
                     </div>
                   </div>
 
-                  {/* Trades list */}
+                  {/* Strategies list */}
                   <div className="space-y-2">
                     {[
-                      { name: "NIFTY 50", profit: "+8.2%", trend: "up" },
-                      { name: "BANKNIFTY", profit: "+5.3%", trend: "up" },
-                      { name: "FINNIFTY", profit: "-1.2%", trend: "down" },
-                    ].map((trade, idx) => (
+                      { name: "AI-Nifty Smart", status: "Running", trades: "24" },
+                      { name: "Option Chain Sweep", status: "Running", trades: "18" },
+                      { name: "Greeks Optimizer", status: "Idle", trades: "0" },
+                    ].map((strategy, idx) => (
                       <div key={idx} className="flex items-center justify-between p-3 bg-background/50 rounded-lg border border-border/30 hover:border-primary/30 transition-all">
                         <div>
-                          <p className="text-sm font-bold text-foreground">{trade.name}</p>
+                          <p className="text-sm font-bold text-foreground">{strategy.name}</p>
+                          <p className="text-xs text-foreground/60">{strategy.status}</p>
                         </div>
-                        <div className={`text-sm font-black ${trade.trend === "up" ? "text-success" : "text-destructive"}`}>
-                          {trade.profit}
+                        <div className={`text-sm font-black ${strategy.status === "Running" ? "text-success" : "text-foreground/50"}`}>
+                          {strategy.trades} trades
                         </div>
                       </div>
                     ))}
@@ -136,11 +137,11 @@ export function HeroSection() {
                   {/* Progress */}
                   <div>
                     <div className="flex justify-between items-center mb-2">
-                      <p className="text-xs font-semibold text-foreground">Daily Target</p>
-                      <p className="text-xs font-bold text-primary">85%</p>
+                      <p className="text-xs font-semibold text-foreground">System Uptime</p>
+                      <p className="text-xs font-bold text-primary">99.8%</p>
                     </div>
                     <div className="h-2 bg-background/80 rounded-full overflow-hidden">
-                      <div className="h-full w-[85%] bg-gradient-to-r from-primary to-accent rounded-full" />
+                      <div className="h-full w-[99.8%] bg-gradient-to-r from-primary to-accent rounded-full" />
                     </div>
                   </div>
                 </div>
@@ -153,9 +154,9 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Trust badges */}
+        {/* Integration badges */}
         <div className={`mt-20 ${mounted ? "animate-fade-in animation-delay-300" : "opacity-0"}`}>
-          <p className="text-center text-sm text-foreground/60 mb-6 font-semibold uppercase tracking-widest">Trusted by India's Top Traders</p>
+          <p className="text-center text-sm text-foreground/60 mb-6 font-semibold uppercase tracking-widest">Integrated with 20+ Brokers</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {["Angel One", "Zerodha", "Upstox", "Fyers"].map((broker) => (
               <div key={broker} className="bg-card/50 border border-primary/10 rounded-lg p-4 text-center hover:border-primary/30 transition-all">
