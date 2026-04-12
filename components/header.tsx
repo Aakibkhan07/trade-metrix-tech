@@ -4,7 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X, ChevronDown, Home, Wrench, Newspaper, BarChart3, FileText } from "lucide-react"
+import { Menu, X, ChevronDown, Home, Wrench, Newspaper, BarChart3 } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
 export function Header() {
@@ -101,13 +101,6 @@ export function Header() {
             Performance
           </Link>
           <Link
-            href="/enquiry"
-            className="flex items-center gap-1 text-sm font-medium text-primary transition-colors hover:text-primary/80"
-          >
-            <FileText className="h-3.5 w-3.5" />
-            Enquiry
-          </Link>
-          <Link
             href="/contact"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
@@ -116,9 +109,6 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Button variant="ghost" asChild>
-            <Link href="/login">Log In</Link>
-          </Button>
           <Button
             asChild
             className="bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:from-purple-600 hover:to-blue-600"
@@ -206,21 +196,10 @@ export function Header() {
             >
               Performance
             </Link>
-            <Link
-              href="/enquiry"
-              className="flex items-center gap-2 text-sm font-medium text-primary"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <FileText className="h-4 w-4" />
-              Enquiry Form
-            </Link>
             <Link href="/contact" className="text-sm font-medium" onClick={() => setIsMenuOpen(false)}>
               Contact
             </Link>
             <div className="flex flex-col gap-2 border-t border-border pt-4">
-              <Button variant="outline" asChild className="w-full bg-transparent">
-                <Link href="/login">Log In</Link>
-              </Button>
               <Button
                 asChild
                 className="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:from-purple-600 hover:to-blue-600"
