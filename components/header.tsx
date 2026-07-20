@@ -4,7 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X, ChevronDown, Home, Wrench, Newspaper, BarChart3 } from "lucide-react"
+import { Menu, X, ChevronDown, Home, Wrench, Newspaper, BarChart3, FileText } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
 export function Header() {
@@ -36,13 +36,6 @@ export function Header() {
           >
             <Home className="h-3.5 w-3.5" />
             Home
-          </Link>
-
-          <Link
-            href="/about"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-          >
-            About
           </Link>
 
           <DropdownMenu>
@@ -78,6 +71,9 @@ export function Header() {
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link href="/algo-knowledge">Algo Trading Guide</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/blog">Blog</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -169,6 +165,9 @@ export function Header() {
                 </Link>
                 <Link href="/algo-knowledge" className="text-sm font-medium" onClick={() => setIsMenuOpen(false)}>
                   Algo Trading Guide
+                </Link>
+                <Link href="/blog" className="text-sm font-medium" onClick={() => setIsMenuOpen(false)}>
+                  Blog
                 </Link>
               </div>
             </div>

@@ -30,14 +30,32 @@ const inter = Inter({ subsets: ["latin"] })
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Trade Metrix - Algo Trading Strategies",
+  title: "Trade Metrix — Algo Strategy Builder & Deployment Platform",
   description:
-    "Professional algorithmic trading software. Purchase proven algo strategies for NSE & BSE. Trade with code, not emotions.",
-  keywords: "algo trading, automated trading, NSE, BSE, nifty options, bank nifty, trading strategies, algo software",
+    "Build, backtest and deploy your own algorithmic trading strategies across 10+ Indian brokers. No coding required. No tips, no advisory — pure strategy automation.",
+  keywords:
+    "algo trading, algorithmic trading strategy builder, backtesting software, deploy trading algorithm, trading bot builder, custom trading strategy, NSE, BSE, strategy automation, multi broker trading",
+  openGraph: {
+    title: "Trade Metrix — Build & Deploy Algo Trading Strategies",
+    description:
+      "Build, backtest and deploy custom algorithmic trading strategies across 10+ brokers. No advisory, no tips — pure strategy automation.",
+    url: "https://algo.trademetrix.tech",
+    siteName: "Trade Metrix",
+    locale: "en_IN",
+    type: "website",
+    images: [{ url: "https://algo.trademetrix.tech/og-image.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Trade Metrix — Algo Strategy Builder & Deployment Platform",
+    description: "Build, backtest and deploy algorithmic trading strategies across 10+ brokers.",
+  },
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",
   },
+  robots: "index, follow",
+  category: "finance",
   generator: "v0.app",
 }
 
@@ -48,6 +66,30 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              name: "Trade Metrix",
+              applicationCategory: "FinanceApplication",
+              operatingSystem: "Web",
+              description:
+                "Build, backtest and deploy custom algorithmic trading strategies across 10+ brokers. Strategy builder, backtesting engine, and automated execution.",
+              brand: { "@type": "Brand", name: "Trade Metrix" },
+              featureList:
+                "Strategy Builder, Backtesting Engine, Multi-Broker Support, Auto Execution, Risk Management, AI Trading Desk",
+              offers: {
+                "@type": "AggregateOffer",
+                priceCurrency: "INR",
+                availability: "https://schema.org/InStock",
+              },
+            }),
+          }}
+        />
+      </head>
       <body className={`font-sans antialiased`}>
         <UserTrackingClient />
         <div className="pt-0">
